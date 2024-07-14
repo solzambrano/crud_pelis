@@ -12,10 +12,14 @@ db.Cities.findAll()
 //     res.render(cityNames);
 // })
 },
-add:(req,res)=>{
+listOne:(req,res)=>{
+    db.Cities.findByPk(req.params.id)
+       .then((citie=>{
+        res.json(citie)
+    }))
 
 },
-create:(req,res)=>{
+add:(req,res)=>{
 
 },
 delete:(req,res)=>{

@@ -3,6 +3,7 @@ const routes = express.Router();
 const indexController=require('../controllers/indexController')
 
 routes.get('/', indexController.list)
+routes.get('/:id', indexController.listOne)
 // routes.post('/', (req, res) => res.send("ESTAS EN HOME"));
 // routes.put('/', (req, res) => res.send("ESTAS EN HOME"));
 // routes.delete('/', (req, res) => res.send("ESTAS EN HOME"));
