@@ -19,12 +19,34 @@ listOne:(req,res)=>{
     }))
 
 },
-add:(req,res)=>{
+add:async(req,res)=>{
+    try{
+        const newCity=await db.Cities.create({
+    Name:"Buenos Aires",
+    CountryCode:"ARG",
+    District:"Argentina",
+    Population:200000
 
+})
+res.json({"message": "Registro creado correctamente"})
+    }catch (error) {
+        res.status(500).json({"message": error.message});
+    }
 },
-delete:(req,res)=>{
 
+delete : (req,res)=>{
+    db.Cities.destroy({where :{id:req.params.id}})
+        res.json({"message": "Posteo Borrado correctamente"}) 
 },
+update:(req,res)=>{
+    db.Cities.update({
+        Name:'Cary'
+    },{
+
+    where:{id:4079}
+    }
+    )
+}
 }
 
 module.exports = cityController;

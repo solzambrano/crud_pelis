@@ -4,9 +4,9 @@ const indexController=require('../controllers/indexController')
 
 routes.get('/', indexController.list)
 routes.get('/:id', indexController.listOne)
-// routes.post('/', (req, res) => res.send("ESTAS EN HOME"));
-// routes.put('/', (req, res) => res.send("ESTAS EN HOME"));
-// routes.delete('/', (req, res) => res.send("ESTAS EN HOME"));
+ routes.post('/add', indexController.add)
+ router.put ("/:id",indexController.update ) 
+router.delete ("/:id",indexController.delete)// routes.delete('/', (req, res) => res.send("ESTAS EN HOME"));
 
 
 
