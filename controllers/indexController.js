@@ -21,12 +21,13 @@ listOne:(req,res)=>{
 },
 add:(req,res)=>{
     db.Cities.create({
-    Name:"Buenos Aires",
-    CountryCode:"ARG",
-    District:"Argentina",
-    Population:200000
+    Name:req.body.Name,
+    CountryCode:req.body.CountryCode,
+    District:req.body.District,
+    Population:req.body.Population
 
 })
+ res.json({"message": "Agregado correctamente"})
 },
 
 delete : (req,res)=>{
@@ -34,13 +35,17 @@ delete : (req,res)=>{
         res.json({"message": "Posteo Borrado correctamente"}) 
 },
 update:(req,res)=>{
+   
     db.Cities.update({
-        Name:'Cary'
+        Name:req.body.Name,
+    CountryCode:req.body.CountryCode,
+    District:req.body.District,
+    Population:req.body.Population
     },{
 
     where:{id:req.params.id}
-    }
-    )
+    })
+     res.json({"message": "Corregido correctamente"}) 
 }
 }
 
