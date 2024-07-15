@@ -19,19 +19,14 @@ listOne:(req,res)=>{
     }))
 
 },
-add:async(req,res)=>{
-    try{
-        const newCity=await db.Cities.create({
+add:(req,res)=>{
+    db.Cities.create({
     Name:"Buenos Aires",
     CountryCode:"ARG",
     District:"Argentina",
     Population:200000
 
 })
-res.json({"message": "Registro creado correctamente"})
-    }catch (error) {
-        res.status(500).json({"message": error.message});
-    }
 },
 
 delete : (req,res)=>{
@@ -43,7 +38,7 @@ update:(req,res)=>{
         Name:'Cary'
     },{
 
-    where:{id:4079}
+    where:{id:req.params.id}
     }
     )
 }
